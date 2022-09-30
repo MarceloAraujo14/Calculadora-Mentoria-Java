@@ -26,7 +26,7 @@ public class MenuIMC extends IMenu {
     }
 
     private void showResult(String operation, double result){
-        System.out.printf("O seu %s é: %.2f", operation, result);
+        System.out.printf("O seu %s é: %f", operation, result);
     }
 
 

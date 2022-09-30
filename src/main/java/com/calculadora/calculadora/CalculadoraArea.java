@@ -15,12 +15,16 @@ public class CalculadoraArea implements Calculadora {
     }
 
     private double circulo(double a){
-        return Math.PI * Math.pow(a, 2);
+
+        double value = Math.PI * Math.pow(a, 2);
+        return Double.parseDouble(String.format("%.5f", value));
     }
     private double quadrado(double a, double b){
-        return a * b;
+        double value =  a * b;
+        return Double.parseDouble(String.format("%.5f", value));
     }
     private double retangulo(double a, double b){
-        return a * b;
+        double value =  a * b;
+        return Double.parseDouble(String.format("%.5f", value));
     }
 }

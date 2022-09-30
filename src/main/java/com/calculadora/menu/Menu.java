@@ -8,9 +8,9 @@ import static com.calculadora.util.ReadUtil.readOption;
 
 public class Menu {
     IMenu activeMenu;
+    int option = 0;
 
     public void run() {
-        int option = 0;
         while (option != 4){
             activeMenu = new MenuMain();
             activeMenu.callMenu();

@@ -3,7 +3,7 @@ package com.calculadora.calculadora;
 import org.junit.jupiter.api.Test;
 
 import static com.calculadora.constants.MathOperations.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class CalculadoraPadraoTest {
 
@@ -43,6 +43,15 @@ class CalculadoraPadraoTest {
         double expected = 25;
         double actual = calculadora.calcular(POTENCIACAO, values);
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void deveLanarErroEmCasoDeOperacaoNaoSuportada(){
+        double[] values = {5,2};
+        String expectedMessage = "Operação não suportada.";
+        String actualMessage = assertThrows(IllegalArgumentException.class,
+                () -> calculadora.calcular(IMC, values)).getMessage();
+        assertEquals(expectedMessage, actualMessage);
     }
 
 }
