@@ -8,7 +8,7 @@ public class ReadUtil {
 
     public static int readOption(){
         try {
-            return scanner.nextInt();
+            return Integer.parseInt(String.valueOf(scanner.next().charAt(0)));
         }catch (Exception e){
             scanner.next();
             return 0;

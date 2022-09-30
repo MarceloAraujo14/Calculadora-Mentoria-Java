@@ -7,7 +7,6 @@ import static com.calculadora.util.ReadUtil.readValue;
 
 public class MenuPadrao extends Menu {
 
-
     @Override
     public String execute(){
         printMenu();
