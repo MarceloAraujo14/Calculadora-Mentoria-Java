@@ -1,11 +1,11 @@
 package com.calculadora;
 
 
-import com.calculadora.menu.Menu;
+import com.calculadora.menu.MenuController;
 
 public class Main {
     public static void main(String[] args) {
-        Menu menu = new Menu();
-        menu.run();
+        MenuController menuController = new MenuController();
+        menuController.run();
     }
 }

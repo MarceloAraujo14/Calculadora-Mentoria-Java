@@ -9,13 +9,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mockStatic;
 
 @ExtendWith(MockitoExtension.class)
-class MenuTest {
-    Menu menu = new Menu();
+class MenuControllerTest {
+    MenuController menuController = new MenuController();
 
     @Test
     void deveMostarOMenuPrincipalESair(){
         mockStatic(ReadUtil.class).when(ReadUtil::readOption).thenReturn(4);
-        menu.run();
-        assertEquals(MenuMain.class, menu.activeMenu.getClass());
+        menuController.run();
+        assertEquals(MenuMain.class, menuController.activeMenu.getClass());
+    }
+
+    @Test
+    void deveMostarOMenuPrincipalAcessarACalculadoraPadrao(){
+        mockStatic(ReadUtil.class).when(ReadUtil::readOption).thenReturn(1);
+
+        menuController.run();
+        assertEquals(MenuMain.class, menuController.activeMenu.getClass());
     }
 }

@@ -1,40 +1,48 @@
 package com.calculadora.menu;
 
 import static com.calculadora.constants.MathOperations.*;
+import static com.calculadora.constants.MenuConstants.OPTION_ERROR;
 import static com.calculadora.util.ReadUtil.readOption;
 import static com.calculadora.util.ReadUtil.readValue;
 
-public class MenuPadrao extends IMenu {
+public class MenuPadrao extends Menu {
+
 
     @Override
-    public void callMenu(){
+    public String execute(){
+        printMenu();
+        String result;
+        do {
+            result = setOperation(readOption());
+        }while (result.equals(OPTION_ERROR.getValue()));
+        return result;
+    }
 
+    private void printMenu() {
         System.out.println("===== CALCULADORA PADRÃO ======\n");
         System.out.println("[1] ====================== SOMA");
         System.out.println("[2] ================= SUBTRAÇÃO");
         System.out.println("[3] =================== DIVISÃO");
         System.out.println("[4] ============= MULTIPLICAÇÃO");
         System.out.println("[5] =============== POTENCIAÇÃO");
+        System.out.println("[0] ==================== VOLTAR");
         System.out.print("\nSelecione o tipo de operação desejada: ");
-
-        int operation = readOption();
-        double[] values = getValues();
-
-        switch (operation) {
-            case (1) -> showResult("soma", calculadora.calcular(SOMA, values));
-            case (2) -> showResult("subtracao", calculadora.calcular(SUBTRACAO, values));
-            case (3) -> showResult("divisao", calculadora.calcular(DIVISAO, values));
-            case (4) -> showResult("multiplicacao", calculadora.calcular(MULTIPLICACAO, values));
-            case (5) -> showResult("potenciação", calculadora.calcular(POTENCIACAO, values));
-            default -> {
-                System.out.println("Selecione uma opção válida.");
-                callMenu();
-            }
-        }
     }
 
-    private void showResult(String operation, double result){
-        System.out.println("O resultado da " + operation + " é: " + result);
+    private String setOperation(int operation) {
+        return switch (operation) {
+            case (1) -> printResult("soma", calculadora.calcular(SOMA, getValues()));
+            case (2) -> printResult("subtracao", calculadora.calcular(SUBTRACAO, getValues()));
+            case (3) -> printResult("divisao", calculadora.calcular(DIVISAO, getValues()));
+            case (4) -> printResult("multiplicacao", calculadora.calcular(MULTIPLICACAO, getValues()));
+            case (5) -> printResult("potenciação", calculadora.calcular(POTENCIACAO, getValues()));
+            case (0) -> "";
+            default -> OPTION_ERROR.getValue();
+        };
+    }
+
+    private String printResult(String operation, double result){
+       return "O resultado da " + operation + " é: " + result;
     }
 
     private double[] getValues() {

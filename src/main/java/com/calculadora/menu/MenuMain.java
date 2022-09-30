@@ -1,9 +1,14 @@
 package com.calculadora.menu;
 
-public class MenuMain extends IMenu{
+public class MenuMain extends Menu {
 
     @Override
-    public void callMenu() {
+    public String execute() {
+        printMenu();
+        return "";
+    }
+
+    private void printMenu() {
         System.out.println("\n========= CALCULADORA =======\n");
 
         System.out.println("[1] ======== PADRÃO =========");
@@ -11,6 +16,7 @@ public class MenuMain extends IMenu{
         System.out.println("[3] ========= ÁREA ==========");
         System.out.println("[4] ========= SAIR ==========");
 
-        System.out.print("\nSelecione a opção desejada: ");
+        System.out.println("\nSelecione a opção desejada: ");
+
     }
 }
