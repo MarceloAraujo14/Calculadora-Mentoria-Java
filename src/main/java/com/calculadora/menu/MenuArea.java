@@ -1,8 +1,6 @@
 package com.calculadora.menu;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-
+import static com.calculadora.constants.MathOperations.*;
 import static com.calculadora.util.ReadUtil.readOption;
 import static com.calculadora.util.ReadUtil.readValue;
 
@@ -26,10 +24,10 @@ public class MenuArea extends IMenu{
         switch (operation) {
             case (1) -> {
                 System.out.print("Selecione a medida do raio em m: ");
-                showResult("CIRCULO", calculadora.calcular("CIRCULO", new double[]{readValue()}));
+                showResult(AREA_CIRCULO.getName(), calculadora.calcular(AREA_CIRCULO, new double[]{readValue()}));
             }
-            case (2) -> calculadora.calcular("QUADRADO", getValues());
-            case (3) -> calculadora.calcular("RETÂNGULO", getValues());
+            case (2) -> showResult(AREA_QUADRADO.getName(), calculadora.calcular(AREA_QUADRADO, getValues()));
+            case (3) -> showResult(AREA_RETANGULO.getName(), calculadora.calcular(AREA_RETANGULO, getValues()));
             default -> {
                 System.out.println("Selecione uma opção válida.");
                 callMenu();

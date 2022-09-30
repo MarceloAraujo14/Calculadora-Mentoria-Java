@@ -1,16 +1,18 @@
 package com.calculadora.calculadora;
 
+import com.calculadora.constants.MathOperations;
+
 public class CalculadoraPadrao implements Calculadora {
 
     @Override
-    public double calcular(String operacao, double[] values) {
+    public double calcular(MathOperations operacao, double[] values) {
 
         return switch (operacao){
-            case ("SOMA") -> soma(values[0], values[1]);
-            case ("SUBTRAÇÃO") -> subtracao(values[0], values[1]);
-            case ("DIVISÃO") -> divisao(values[0], values[1]);
-            case ("MULTIPLICAÇÃO") -> multiplicacao(values[0], values[1]);
-            case ("POTENCIAÇÃO") -> potenciacao(values[0], values[1]);
+            case SOMA -> soma(values[0], values[1]);
+            case SUBTRACAO -> subtracao(values[0], values[1]);
+            case DIVISAO -> divisao(values[0], values[1]);
+            case MULTIPLICACAO -> multiplicacao(values[0], values[1]);
+            case POTENCIACAO -> potenciacao(values[0], values[1]);
             default -> throw new IllegalArgumentException("Operação não suportada.");
         };
     }

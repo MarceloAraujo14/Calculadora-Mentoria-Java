@@ -1,5 +1,6 @@
 package com.calculadora.menu;
 
+import static com.calculadora.constants.MathOperations.*;
 import static com.calculadora.util.ReadUtil.readOption;
 import static com.calculadora.util.ReadUtil.readValue;
 
@@ -20,11 +21,11 @@ public class MenuPadrao extends IMenu {
         double[] values = getValues();
 
         switch (operation) {
-            case (1) -> showResult("soma", calculadora.calcular("SOMA", values));
-            case (2) -> showResult("subtracao", calculadora.calcular("SUBTRAÇÃO", values));
-            case (3) -> showResult("divisao", calculadora.calcular("DIVISÃO", values));
-            case (4) -> showResult("multiplicacao", calculadora.calcular("MULTIPLICAÇÃO", values));
-            case (5) -> showResult("potenciação", calculadora.calcular("POTENCIAÇÃO", values));
+            case (1) -> showResult("soma", calculadora.calcular(SOMA, values));
+            case (2) -> showResult("subtracao", calculadora.calcular(SUBTRACAO, values));
+            case (3) -> showResult("divisao", calculadora.calcular(DIVISAO, values));
+            case (4) -> showResult("multiplicacao", calculadora.calcular(MULTIPLICACAO, values));
+            case (5) -> showResult("potenciação", calculadora.calcular(POTENCIACAO, values));
             default -> {
                 System.out.println("Selecione uma opção válida.");
                 callMenu();

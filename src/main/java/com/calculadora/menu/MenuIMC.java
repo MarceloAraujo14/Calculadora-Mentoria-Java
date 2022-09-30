@@ -1,5 +1,6 @@
 package com.calculadora.menu;
 
+import static com.calculadora.constants.MathOperations.IMC;
 import static com.calculadora.util.ReadUtil.readValue;
 
 public class MenuIMC extends IMenu {
@@ -12,7 +13,7 @@ public class MenuIMC extends IMenu {
 
         double[] values = getValues();
 
-        showResult("IMC", calculadora.calcular("IMC", values));
+        showResult(IMC.getName(), calculadora.calcular(IMC, values));
     }
 
     private double[] getValues() {
