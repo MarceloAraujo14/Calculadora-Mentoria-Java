@@ -1,6 +1,6 @@
 package com.calculator.entity;
 
-import com.calculator.mathoperations.*;
+import com.calculator.entity.mathoperations.*;
 import lombok.Getter;
 
 import java.util.List;
@@ -12,7 +12,11 @@ public class StandardCalculator implements Calculator {
 
     @Override
     public double calculate(int operationIndex, double[] values) {
-        MathOperation operation = this.operations.get(operationIndex);
-        return operation.execute(values);
+        try {
+            MathOperation operation = this.operations.get(operationIndex);
+            return operation.execute(values);
+        }catch (IndexOutOfBoundsException e){
+            throw new UnsupportedOperationException("Unsuported operation.");
+        }
     }
 }

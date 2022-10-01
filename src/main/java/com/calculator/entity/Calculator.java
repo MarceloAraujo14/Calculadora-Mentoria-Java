@@ -1,6 +1,6 @@
 package com.calculator.entity;
 
-import com.calculator.mathoperations.MathOperation;
+import com.calculator.entity.mathoperations.MathOperation;
 
 import java.util.List;
 

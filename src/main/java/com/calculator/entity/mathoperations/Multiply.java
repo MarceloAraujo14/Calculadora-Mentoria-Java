@@ -1,4 +1,4 @@
-package com.calculator.mathoperations;
+package com.calculator.entity.mathoperations;
 
 import lombok.Getter;
 
