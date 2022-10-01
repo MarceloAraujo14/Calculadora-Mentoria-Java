@@ -2,7 +2,7 @@ package com.calculadora.calculadora;
 
 import org.junit.jupiter.api.Test;
 
-import static com.calculadora.constants.MathOperations.*;
+import static com.calculadora.constants.MathOperation.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

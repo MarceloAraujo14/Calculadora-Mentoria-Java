@@ -2,8 +2,8 @@ package com.calculadora.calculadora;
 
 import org.junit.jupiter.api.Test;
 
-import static com.calculadora.constants.MathOperations.IMC;
-import static com.calculadora.constants.MathOperations.SUBTRACAO;
+import static com.calculadora.constants.MathOperation.IMC;
+import static com.calculadora.constants.MathOperation.SUBTRACTION;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -23,7 +23,7 @@ class CalculadoraIMCTest {
         double[] values = {85,1.8};
         String expectedMessage = "Operação não suportada.";
         String actualMessage = assertThrows(IllegalArgumentException.class,
-                () -> calculadora.calcular(SUBTRACAO, values)).getMessage();
+                () -> calculadora.calcular(SUBTRACTION, values)).getMessage();
         assertEquals(expectedMessage, actualMessage);
     }
 }
