@@ -6,9 +6,10 @@ import java.util.List;
 
 public interface Calculator {
 
-    double calculate(int operationIndex, double[] values);
+    double calculate(int operationIndex);
 
     List<MathOperation> getOperations();
 
     String getName();
+
 }

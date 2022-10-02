@@ -8,6 +8,8 @@ import lombok.Getter;
 
 import java.util.List;
 
+import static com.calculator.utils.ReadUtils.readValue;
+
 @Getter
 public class AreaCalculator implements Calculator {
 
@@ -16,12 +18,29 @@ public class AreaCalculator implements Calculator {
     private final List<MathOperation> operations = List.of(new CircleArea(), new SquareArea(), new RectangleArea());
 
     @Override
-    public double calculate(int operationIndex, double[] values) {
+    public double calculate(int operationIndex) {
         try {
             MathOperation operation = this.operations.get(operationIndex);
-            return operation.execute(values);
+            return operation.execute(readValues(operationIndex));
         }catch (IndexOutOfBoundsException e){
             throw new UnsupportedOperationException("Unsuported operation.");
         }
     }
+
+    private double[] readValues(int operationIndex){
+        double[] values = new double[2];
+        if (operationIndex == 0){
+            System.out.print("Insert the circle radius in meters: ");
+            values[0] = readValue();
+        }
+        else {
+            System.out.print("Insert the height in meters: ");
+            values[0] = readValue();
+            System.out.print("Insert the width in meters: ");
+            values[1] = readValue();
+        }
+
+        return values;
+    }
+
 }
