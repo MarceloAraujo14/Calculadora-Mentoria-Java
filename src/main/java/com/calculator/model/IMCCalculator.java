@@ -1,13 +1,15 @@
-package com.calculator.entity;
+package com.calculator.model;
 
-import com.calculator.entity.mathoperations.IMC;
-import com.calculator.entity.mathoperations.MathOperation;
+import com.calculator.model.mathoperations.IMC;
+import com.calculator.model.mathoperations.MathOperation;
 import lombok.Getter;
 
 import java.util.List;
 
 @Getter
 public class IMCCalculator implements Calculator {
+
+    private final String name = "IMC CALCULATOR";
 
     private final List<MathOperation> operations = List.of(new IMC());
 

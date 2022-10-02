@@ -1,4 +1,4 @@
-package com.calculator.entity.mathoperations;
+package com.calculator.model.mathoperations;
 
 public interface MathOperation {
 

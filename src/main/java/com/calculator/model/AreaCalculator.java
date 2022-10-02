@@ -1,15 +1,17 @@
-package com.calculator.entity;
+package com.calculator.model;
 
-import com.calculator.entity.mathoperations.CircleArea;
-import com.calculator.entity.mathoperations.MathOperation;
-import com.calculator.entity.mathoperations.RectangleArea;
-import com.calculator.entity.mathoperations.SquareArea;
+import com.calculator.model.mathoperations.CircleArea;
+import com.calculator.model.mathoperations.MathOperation;
+import com.calculator.model.mathoperations.RectangleArea;
+import com.calculator.model.mathoperations.SquareArea;
 import lombok.Getter;
 
 import java.util.List;
 
 @Getter
 public class AreaCalculator implements Calculator {
+
+    private final String name = "AREA CALCULATOR";
 
     private final List<MathOperation> operations = List.of(new CircleArea(), new SquareArea(), new RectangleArea());
 
