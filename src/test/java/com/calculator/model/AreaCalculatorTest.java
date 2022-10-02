@@ -1,12 +1,12 @@
 package com.calculator.model;
 
-import com.calculator.utils.ReadUtils;
+import com.calculator.utils.CalculatorUtils;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.mockStatic;
+import static org.mockito.Mockito.*;
 
 class AreaCalculatorTest {
 
@@ -17,10 +17,11 @@ class AreaCalculatorTest {
         double[] values = {2};
         int index = 0;
         double expect = 12.56637;
-        try(MockedStatic<ReadUtils> mock = mockStatic(ReadUtils.class)){
-            mock.when(ReadUtils::readValue).thenReturn(values[0]);
+        try(MockedStatic<CalculatorUtils> mock = mockStatic(CalculatorUtils.class)){
+            mock.when(CalculatorUtils::readValue).thenReturn(values[0]);
             double actual = underTest.calculate(index);
             assertEquals(expect, actual);
+            verify(mock, times(1)).when(CalculatorUtils::readValue);
         }
     }
 
@@ -29,10 +30,11 @@ class AreaCalculatorTest {
         double[] values = {2,2};
         int index = 1;
         double expect = 4;
-        try(MockedStatic<ReadUtils> mock = mockStatic(ReadUtils.class)){
-            mock.when(ReadUtils::readValue).thenReturn(values[0]).thenReturn(values[1]);
+        try(MockedStatic<CalculatorUtils> mock = mockStatic(CalculatorUtils.class)){
+            mock.when(CalculatorUtils::readValue).thenReturn(values[0]).thenReturn(values[1]);
             double actual = underTest.calculate(index);
             assertEquals(expect, actual);
+            verify(mock, times(1)).when(CalculatorUtils::readValue);
         }
     }
 
@@ -41,10 +43,11 @@ class AreaCalculatorTest {
         double[] values = {2,2};
         int index = 2;
         double expect = 4;
-        try(MockedStatic<ReadUtils> mock = mockStatic(ReadUtils.class)){
-            mock.when(ReadUtils::readValue).thenReturn(values[0]).thenReturn(values[1]);
+        try(MockedStatic<CalculatorUtils> mock = mockStatic(CalculatorUtils.class)){
+            mock.when(CalculatorUtils::readValue).thenReturn(values[0]).thenReturn(values[1]);
             double actual = underTest.calculate(index);
             assertEquals(expect, actual);
+            verify(mock, times(1)).when(CalculatorUtils::readValue);
         }
     }
 

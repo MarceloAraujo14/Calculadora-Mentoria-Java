@@ -1,6 +1,6 @@
 package com.calculator.model;
 
-import com.calculator.utils.ReadUtils;
+import com.calculator.utils.CalculatorUtils;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 
@@ -16,8 +16,8 @@ class StandardCalculatorTest {
         double[] values = {5,2};
         int index = 0;
         double expect = 7;
-        try(MockedStatic<ReadUtils> mock = mockStatic(ReadUtils.class)){
-            mock.when(ReadUtils::readValue).thenReturn(values[0]).thenReturn(values[1]);
+        try(MockedStatic<CalculatorUtils> mock = mockStatic(CalculatorUtils.class)){
+            mock.when(CalculatorUtils::readValue).thenReturn(values[0]).thenReturn(values[1]);
             double actual = underTest.calculate(index);
             assertEquals(expect, actual);
         }
@@ -27,8 +27,8 @@ class StandardCalculatorTest {
         double[] values = {5,2};
         int index = 1;
         double expect = 3;
-        try(MockedStatic<ReadUtils> mock = mockStatic(ReadUtils.class)){
-            mock.when(ReadUtils::readValue).thenReturn(values[0]).thenReturn(values[1]);
+        try(MockedStatic<CalculatorUtils> mock = mockStatic(CalculatorUtils.class)){
+            mock.when(CalculatorUtils::readValue).thenReturn(values[0]).thenReturn(values[1]);
             double actual = underTest.calculate(index);
             assertEquals(expect, actual);
         }
@@ -38,8 +38,8 @@ class StandardCalculatorTest {
         double[] values = {5,2};
         int index = 2;
         double expect = 10;
-        try(MockedStatic<ReadUtils> mock = mockStatic(ReadUtils.class)){
-            mock.when(ReadUtils::readValue).thenReturn(values[0]).thenReturn(values[1]);
+        try(MockedStatic<CalculatorUtils> mock = mockStatic(CalculatorUtils.class)){
+            mock.when(CalculatorUtils::readValue).thenReturn(values[0]).thenReturn(values[1]);
             double actual = underTest.calculate(index);
             assertEquals(expect, actual);
         }
@@ -49,8 +49,8 @@ class StandardCalculatorTest {
         double[] values = {5,2};
         int index = 3;
         double expect = 2.5;
-        try(MockedStatic<ReadUtils> mock = mockStatic(ReadUtils.class)){
-            mock.when(ReadUtils::readValue).thenReturn(values[0]).thenReturn(values[1]);
+        try(MockedStatic<CalculatorUtils> mock = mockStatic(CalculatorUtils.class)){
+            mock.when(CalculatorUtils::readValue).thenReturn(values[0]).thenReturn(values[1]);
             double actual = underTest.calculate(index);
             assertEquals(expect, actual);
         }
@@ -60,8 +60,8 @@ class StandardCalculatorTest {
         double[] values = {5,2};
         int index = 4;
         double expect = 25;
-        try(MockedStatic<ReadUtils> mock = mockStatic(ReadUtils.class)){
-            mock.when(ReadUtils::readValue).thenReturn(values[0]).thenReturn(values[1]);
+        try(MockedStatic<CalculatorUtils> mock = mockStatic(CalculatorUtils.class)){
+            mock.when(CalculatorUtils::readValue).thenReturn(values[0]).thenReturn(values[1]);
             double actual = underTest.calculate(index);
             assertEquals(expect, actual);
         }

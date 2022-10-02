@@ -2,9 +2,9 @@ package com.calculator.utils;
 
 import java.util.Scanner;
 
-public class ReadUtils {
+public class CalculatorUtils {
 
-    private ReadUtils(){}
+    private CalculatorUtils(){}
 
     private static final Scanner scanner = new Scanner(System.in);
 

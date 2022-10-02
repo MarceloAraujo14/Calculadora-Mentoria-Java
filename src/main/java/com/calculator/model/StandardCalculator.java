@@ -5,7 +5,8 @@ import lombok.Getter;
 
 import java.util.List;
 
-import static com.calculator.utils.ReadUtils.readValue;
+import static com.calculator.utils.CalculatorConstants.UNSUPORTED_OPERATION_MSG;
+import static com.calculator.utils.CalculatorUtils.readValue;
 
 @Getter
 public class StandardCalculator implements Calculator {
@@ -21,7 +22,8 @@ public class StandardCalculator implements Calculator {
             MathOperation operation = this.operations.get(operationIndex);
             return operation.execute(readValues());
         }catch (IndexOutOfBoundsException e){
-            throw new UnsupportedOperationException("Unsuported operation.");
+            System.out.println(UNSUPORTED_OPERATION_MSG);
+            throw new UnsupportedOperationException(UNSUPORTED_OPERATION_MSG);
         }
     }
 
