@@ -1,6 +1,7 @@
 Projeto Calculadora 
 
-Objetivo: Desenvolver um projeto com 3 categorias de calculadoras para o desafio de mentoria Java com Thiago Oliveira. 
+Objetivo: Desenvolver um projeto com 3 categorias de calculadoras para o desafio de 
+mentoria Java com Thiago Oliveira aplicando POO e os princípios de SOLID. 
 
 Padrão
 - Soma
