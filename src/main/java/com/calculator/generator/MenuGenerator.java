@@ -17,7 +17,7 @@ public class MenuGenerator {
         return String.format("%s %s %s%n", sb, title, sb);
     }
 
-    public static String buildMenuOptions(List<String> options){
+    public static String buildMainMenuOptions(List<String> options){
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < options.size(); i++) {
             sb.append("[").append(i).append("] ");
@@ -28,7 +28,7 @@ public class MenuGenerator {
         return sb.toString();
     }
 
-    public static String buildOperationOptions(List<MathOperation> operations){
+    public static String buildOperationMenuOptions(List<MathOperation> operations){
         int back = 0;
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < operations.size(); i++) {

@@ -31,15 +31,14 @@ public class CalculatorService {
     public void execute(){
         int option;
         do {
-            mainMenu();
+            buildMainMenu();
             option = readOption();
             setCalculator(option);
             if (option == 3) break;
-            operationsMenu(calculator.getOperations());
+            buildOperationsMenu();
             setOperationIndex();
-            List<MathOperation> operations = calculator.getOperations();
-            if(isOperationValid(operations, operationIndex)){
-                showResult(operations, operationIndex);
+            if(isOperationValid()){
+                showResult();
             }
         }while (true);
         System.out.println("Thank you!");
@@ -57,7 +56,7 @@ public class CalculatorService {
         List<MathOperation> operations = calculator.getOperations();
         int option;
         do {
-            operationsMenu(operations);
+            buildOperationsMenu();
             option = readOption();
 
             if(option <= operations.size() && option >= 0){
@@ -72,27 +71,26 @@ public class CalculatorService {
         return calculator.calculate(operationIndex);
     }
 
-    private void mainMenu(){
+    private void buildMainMenu(){
         System.out.println();
         System.out.println(buildHeaderWithTitle("CALCULATOR"));
-        System.out.println(buildMenuOptions(calculatorMenu));
+        System.out.println(buildMainMenuOptions(calculatorMenu));
         System.out.print("Select your calculator: ");
     }
 
-    private void operationsMenu(List<MathOperation> operations) {
+    private void buildOperationsMenu() {
         System.out.println();
         System.out.println(buildHeaderWithTitle(calculator.getName()));
-        System.out.println(buildOperationOptions(operations));
+        System.out.println(buildOperationMenuOptions(calculator.getOperations()));
         System.out.print("Select the operation: ");
     }
 
-    private boolean isOperationValid(List<MathOperation> operations, int operationIndex) {
-        return operationIndex != operations.size();
+    private boolean isOperationValid() {
+        return operationIndex != calculator.getOperations().size() && operationIndex >= 0;
     }
 
-    private void showResult(List<MathOperation> operations, int operationIndex) {
+    private void showResult() {
         double result = calculate();
-        String formatResult = String.format("%nThe result of the %s is %s%n", operations.get(operationIndex).getName(), result);
-        System.out.println(formatResult);
+        System.out.printf("%nThe result of the %s is %s%n%n", calculator.getOperations().get(operationIndex).getName(), result);
     }
 }
