@@ -3,7 +3,7 @@ package com.calculator.model.mathoperations;
 import lombok.Getter;
 
 @Getter
-public class Subtraction implements MathOperation{
+public class Subtract implements MathOperation{
 
     private final String name = "subtraction";
 

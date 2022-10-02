@@ -12,7 +12,8 @@ public class StandardCalculator implements Calculator {
 
     private final String name = "STANDARD CALCULATOR";
 
-    private final List<MathOperation> operations = List.of(new Sum(), new Subtraction(), new Multiply(), new Divide(), new Pow());
+    private final List<MathOperation> operations = List.of(
+            new Sum(), new Subtract(), new Multiply(), new Divide(), new Pow());
 
     @Override
     public double calculate(int operationIndex) {
