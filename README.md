@@ -1,6 +1,6 @@
 Projeto Calculadora 
 
-Objetivo: Desenvolver uma calculadora com 3 tipos de operações
+Objetivo: Desenvolver um projeto com 3 categorias de calculadoras para o desafio de mentoria Java com Thiago Oliveira. 
 
 Padrão
 - Soma
