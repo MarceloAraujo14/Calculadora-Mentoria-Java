@@ -21,7 +21,7 @@ class AreaCalculatorTest {
             mock.when(CalculatorUtils::readValue).thenReturn(values[0]);
             double actual = underTest.calculate(index);
             assertEquals(expect, actual);
-            verify(mock, times(1)).when(CalculatorUtils::readValue);
+
         }
     }
 
@@ -34,7 +34,6 @@ class AreaCalculatorTest {
             mock.when(CalculatorUtils::readValue).thenReturn(values[0]).thenReturn(values[1]);
             double actual = underTest.calculate(index);
             assertEquals(expect, actual);
-            verify(mock, times(1)).when(CalculatorUtils::readValue);
         }
     }
 
@@ -47,7 +46,6 @@ class AreaCalculatorTest {
             mock.when(CalculatorUtils::readValue).thenReturn(values[0]).thenReturn(values[1]);
             double actual = underTest.calculate(index);
             assertEquals(expect, actual);
-            verify(mock, times(1)).when(CalculatorUtils::readValue);
         }
     }
 

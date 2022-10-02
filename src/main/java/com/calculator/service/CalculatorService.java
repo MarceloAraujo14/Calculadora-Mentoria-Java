@@ -6,15 +6,14 @@ import com.calculator.model.IMCCalculator;
 import com.calculator.model.StandardCalculator;
 import com.calculator.model.mathoperations.MathOperation;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.util.List;
+import java.util.Objects;
 
 import static com.calculator.generator.MenuGenerator.*;
 import static com.calculator.utils.CalculatorUtils.readClose;
 import static com.calculator.utils.CalculatorUtils.readOption;
 
-@Setter
 @Getter
 public class CalculatorService {
 
@@ -22,7 +21,7 @@ public class CalculatorService {
 
     private Integer operationIndex = null;
 
-    List<String> calculatorMenu = List.of(
+    private final List<String> calculatorMenu = List.of(
             new StandardCalculator().getName(),
             new IMCCalculator().getName(),
             new AreaCalculator().getName(),
@@ -35,14 +34,22 @@ public class CalculatorService {
             option = readOption();
             setCalculator(option);
             if (option == 3) break;
-            buildOperationsMenu();
-            setOperationIndex();
+            if(optionIsValid(option)){
+                buildOperationsMenu();
+                setOperationIndex();
+            }else {
+                System.out.println("Option invalid.");
+            }
             if(isOperationValid()){
                 showResult();
             }
         }while (true);
         System.out.println("Thank you!");
         readClose();
+    }
+
+    private boolean optionIsValid(int option) {
+        return option >= 0 && option <= calculatorMenu.size();
     }
 
     private void setCalculator(int option){
@@ -75,7 +82,7 @@ public class CalculatorService {
         System.out.println();
         System.out.println(buildHeaderWithTitle("CALCULATOR"));
         System.out.println(buildMainMenuOptions(calculatorMenu));
-        System.out.print("Select your calculator: ");
+        System.out.print("Select the calculator type: ");
     }
 
     private void buildOperationsMenu() {
@@ -86,7 +93,9 @@ public class CalculatorService {
     }
 
     private boolean isOperationValid() {
-        return operationIndex != calculator.getOperations().size() && operationIndex >= 0;
+        return Objects.nonNull(operationIndex) &&
+                operationIndex != calculator.getOperations().size()
+                && operationIndex >= 0;
     }
 
     private void showResult() {
