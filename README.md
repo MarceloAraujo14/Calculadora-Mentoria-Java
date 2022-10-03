@@ -23,4 +23,4 @@ Para rodar o projeto:
  Basta clonar e rodar pela IDE
 
 Tecnologias:
-Java 17, Gradle, Lombok, JUnit, Mockito
+Java 11, Gradle, Lombok, JUnit, Mockito
