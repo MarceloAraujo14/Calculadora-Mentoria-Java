@@ -36,7 +36,6 @@ public class CalculatorController {
             if (option == 3) break;
             if(optionIsValid(option)){
                 calculatorView.setCalculator(this.calculator);
-                calculatorView.buildOperationsMenu();
                 setOperationIndex();
             }else {
                 System.out.println("Invalid option.");
