@@ -1,18 +1,28 @@
-package com.calculator.service;
+package com.calculator.controller;
 
 import com.calculator.model.AreaCalculator;
 import com.calculator.model.IMCCalculator;
 import com.calculator.model.StandardCalculator;
 import com.calculator.utils.CalculatorUtils;
+import com.calculator.view.CalculatorView;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.MockedStatic;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mockStatic;
+import static org.mockito.Mockito.when;
 
-class CalculatorServiceTest {
+@ExtendWith(MockitoExtension.class)
+class CalculatorControllerTest {
 
-    private CalculatorService underTest = new CalculatorService();
+    @InjectMocks
+    private CalculatorController underTest = new CalculatorController();
+    @Mock
+    private CalculatorView calculatorView;
 
     @Test
     void success_select_standardCalculator_operations_sum(){
